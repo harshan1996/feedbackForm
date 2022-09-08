@@ -8,7 +8,7 @@ This is a feedback form for the customers who bought the car. This is a simple a
 * Postgresql or any other DBMS
 
 ##  Getting Started
-Create and activate an virtual environment and run the command to install the dependencies
+Create and activate an virtual environment and then run the following command to install the dependencies
 ```bash
   pip3 install -r requirements.txt
 ```
