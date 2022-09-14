@@ -12,7 +12,7 @@ if env == 'development':
     # Format for URI=postgresQL://Username:Password@Host/Database
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgresql:password@localhost/lexus'
 
-# Here we got the database URI after running heroku config --app lexus-feedback1234
+# Here we got the database URI after running heroku config --app <name-of-your-app>
 else:
     app.debug = False
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://jymqlrkeiokmig:e58a7d9907ecfee163855772c1bf2465de7e20d49c3e4be28ba9afc37f6688ef@ec2-54-147-33-38.compute-1.amazonaws.com:5432/ddajegnuojauoa'
