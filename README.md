@@ -1,7 +1,7 @@
 # Feedback Form
 This is a feedback form for the customers who bought the car. This is a simple app where customers can fill the feedback and the mail will be sent to them about the details they have entered.
 
-# Branches
+## Branches
 The main branch involved postgresql and the dev consists of mysql database.
 
 ## Prerequisites
@@ -16,6 +16,6 @@ Create and activate an virtual environment and then run the following command to
 ```
 
 ## Deployment link
-https://feedback-harshan.vercel.app/
+Link: https://feedback-harshan.vercel.app/
 
 
