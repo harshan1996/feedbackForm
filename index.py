@@ -27,13 +27,13 @@ def submit():
         comments = request.form['comments']
         if customer == '' or dealer == '':
             return render_template('index.html', message='please enter all details')
-        query = "SELECT * FROM feedback WHERE customer =%s"
-        my_cursor.execute(query,(customer,))
+        check_customer_in_query = "SELECT * FROM feedback WHERE customer =%s"
+        my_cursor.execute(check_customer_in_query,(customer,))
         result=my_cursor.fetchall()
         if len(result)==0:
-            sql = "INSERT INTO feedback (customer,dealer,rating,comments) VALUES (%s,%s,%s,%s)"
-            val = (customer,dealer,str(rating),comments)
-            my_cursor.execute(sql, val)
+            insert_data = "INSERT INTO feedback (customer,dealer,rating,comments) VALUES (%s,%s,%s,%s)"
+            values = (customer,dealer,str(rating),comments)
+            my_cursor.execute(insert_data, values)
             my_cursor.close()
             mydb.commit()
             send_mail(customer,dealer,rating,comments)
