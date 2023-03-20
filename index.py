@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
-import mysql.connector
+import pymysql
 from send_mail import send_mail
 from config import host,user,database,password
 import os
 
 app = Flask(__name__)
 
-mydb = mysql.connector.connect(host,user,database,password)
+mydb = pymysql.connect(host=host,user=user,database=database,password=password)
 
 my_cursor = mydb.cursor()
 
