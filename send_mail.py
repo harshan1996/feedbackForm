@@ -1,25 +1,32 @@
-from email import message
+from email.message import EmailMessage
 import smtplib
-# allows us to send text in HTML emails
-from email.mime.text import MIMEText
-
+import ssl
 
 def send_mail(customer, dealer, rating, comments):
-    port = 2525
-    smtp_server = 'smtp.mailtrap.io'
-    username = '9eb8ba1fc1e0b8'
-    password = 'd32a5c69fc36d2'
-    message = f'<h3>New Feedback Submission </h3> <ol><li>Customer:{customer}</li><li>Dealer:{dealer}</li><li>Rating:{rating}</li><li>Comments:{comments}</ li></ol>'
 
+    email_sender = 'harshan.gandamalla@gmail.com'
+    email_password = ''
+    email_receiver = 'receiver@gmail.com'
 
-    sender_email = 'harshan.gandamalla@gmail.com'
-    receiver_email = 'receiver@gmail.com'
-    my_message = MIMEText(message, 'html')
-    my_message['Subject'] = 'LEXUS FEEDBACK'
-    my_message['From'] = sender_email
-    my_message['To'] = receiver_email
+    # Subject and body of the email
+    subject = 'Feedback Submission'
+    body = f"""
+    Customer: {customer}
+    Dealer: {dealer}
+    Rating: {rating}
+    Comments: {comments}
+    """
 
-    # How to send the mail
-    with smtplib.SMTP(smtp_server, port) as server:
-        server.login(username, password)
-        server.sendmail(sender_email, receiver_email, my_message.as_string())
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['Subject'] = subject
+    em.set_content(body)
+
+    # Add SSL (layer of security)
+    context = ssl.create_default_context()
+
+    # Log in and send the email
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        smtp.sendmail(email_sender, email_receiver, em.as_string())
