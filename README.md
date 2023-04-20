@@ -1,8 +1,8 @@
 # Feedback Form
-This is a feedback form for the customers who bought the car. This is a simple app where customers can fill the feedback and the mail will be sent to them about the details they have entered.
+This is a feedback form for the customers who purchased the vehicle. This is a simple app where customers can fill the feedback and the mail will be sent to them about the details they have entered.
 
 ## Branches
-The main branch involved postgresql and the dev consists of mysql database.
+The `main` branch involved `postgresql` database and the `dev` consists of `mysql` database.
 
 ## Prerequisites
 * Python  
